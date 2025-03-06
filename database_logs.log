@@ -1,0 +1,33 @@
+
+2025-03-05 17:54:27,828 - ERROR - Error Occured : 'NoneType' object has no attribute 'cursor'
+2025-03-05 17:56:19,169 - ERROR - Error Occured : 'DataFrame' object has no attribute 'iterows'
+2025-03-05 18:02:02,647 - ERROR - Error Occured : 'DataFrame' object has no attribute 'iterows'
+2025-03-05 18:02:02,654 - ERROR - Error Occured : 'DataFrame' object has no attribute 'iterows'
+2025-03-05 18:03:25,387 - INFO - Execute Query : Insert INTO Products (ProductID,Name,Category,Price,StockQuantity values  '1' , 'Product_1' , 'Clothing' , '149.52' , '113' ) 
+2025-03-05 18:03:25,395 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near the keyword 'values'. (156) (SQLExecDirectW)")
+2025-03-05 18:03:25,405 - INFO - Execute Query : Insert INTO Products (TransactionID,ProductID,Type,Quantity,Date values  '1' , '106' , 'Purchase' , '41' , '2024-05-18 08:58:24' ) 
+2025-03-05 18:03:25,409 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near the keyword 'values'. (156) (SQLExecDirectW)")
+2025-03-05 18:04:10,807 - INFO - Execute Query : Insert INTO Products (ProductID,Name,Category,Price,StockQuantity values  '1' , 'Product_1' , 'Clothing' , '149.52' , '113' ) 
+2025-03-05 18:04:10,808 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near the keyword 'values'. (156) (SQLExecDirectW)")
+2025-03-05 18:04:10,815 - INFO - Execute Query : Insert INTO Transactions (TransactionID,ProductID,Type,Quantity,Date values  '1' , '106' , 'Purchase' , '41' , '2024-05-18 08:58:24' ) 
+2025-03-05 18:04:10,817 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near the keyword 'values'. (156) (SQLExecDirectW)")
+2025-03-05 18:04:41,806 - INFO - Execute Query : Insert INTO Products (ProductID,Name,Category,Price,StockQuantity VALUE  '1' , 'Product_1' , 'Clothing' , '149.52' , '113' ) 
+2025-03-05 18:04:41,810 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near 'VALUE'. (102) (SQLExecDirectW)")
+2025-03-05 18:04:41,815 - INFO - Execute Query : Insert INTO Transactions (TransactionID,ProductID,Type,Quantity,Date VALUE  '1' , '106' , 'Purchase' , '41' , '2024-05-18 08:58:24' ) 
+2025-03-05 18:04:41,816 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near 'VALUE'. (102) (SQLExecDirectW)")
+2025-03-05 18:05:04,741 - INFO - Execute Query : Insert INTO Products (ProductID,Name,Category,Price,StockQuantity VALUES  '1' , 'Product_1' , 'Clothing' , '149.52' , '113' ) 
+2025-03-05 18:05:04,742 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near the keyword 'VALUES'. (156) (SQLExecDirectW)")
+2025-03-05 18:05:04,748 - INFO - Execute Query : Insert INTO Transactions (TransactionID,ProductID,Type,Quantity,Date VALUES  '1' , '106' , 'Purchase' , '41' , '2024-05-18 08:58:24' ) 
+2025-03-05 18:05:04,749 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near the keyword 'VALUES'. (156) (SQLExecDirectW)")
+2025-03-05 18:05:21,930 - INFO - Execute Query : Insert INTO Products (ProductID,Name,Category,Price,StockQuantity) VALUES  '1' , 'Product_1' , 'Clothing' , '149.52' , '113' ) 
+2025-03-05 18:05:21,935 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near '1'. (102) (SQLExecDirectW)")
+2025-03-05 18:05:21,940 - INFO - Execute Query : Insert INTO Transactions (TransactionID,ProductID,Type,Quantity,Date) VALUES  '1' , '106' , 'Purchase' , '41' , '2024-05-18 08:58:24' ) 
+2025-03-05 18:05:21,941 - ERROR - Error Occured : ('42000', "[42000] [Microsoft][ODBC SQL Server Driver][SQL Server]Incorrect syntax near '1'. (102) (SQLExecDirectW)")
+2025-03-05 18:06:29,925 - INFO - Execute Query : Insert INTO Products (ProductID,Name,Category,Price,StockQuantity) VALUES  '1' , 'Product_1' , 'Clothing' , '149.52' , '113' ) 
+2025-03-05 18:06:29,929 - ERROR - Error Occured : ('The SQL contains 0 parameter markers, but 5 parameters were supplied', 'HY000')
+2025-03-05 18:06:29,936 - INFO - Execute Query : Insert INTO Transactions (TransactionID,ProductID,Type,Quantity,Date) VALUES  '1' , '106' , 'Purchase' , '41' , '2024-05-18 08:58:24' ) 
+2025-03-05 18:06:29,936 - ERROR - Error Occured : ('The SQL contains 0 parameter markers, but 5 parameters were supplied', 'HY000')
+2025-03-05 18:07:02,715 - INFO - Executing Query: INSERT INTO Products (ProductID, Name, Category, Price, StockQuantity) VALUES (?, ?, ?, ?, ?) with values (1, 'Product_1', 'Clothing', 149.52, 113)
+2025-03-05 18:07:02,726 - ERROR -  Error Occurred: ('23000', "[23000] [Microsoft][ODBC SQL Server Driver][SQL Server]Cannot insert explicit value for identity column in table 'Products' when IDENTITY_INSERT is set to OFF. (544) (SQLExecDirectW)")
+2025-03-05 18:07:02,733 - INFO - Executing Query: INSERT INTO Transactions (TransactionID, ProductID, Type, Quantity, Date) VALUES (?, ?, ?, ?, ?) with values (1, 106, 'Purchase', 41, '2024-05-18 08:58:24')
+2025-03-05 18:07:02,737 - ERROR -  Error Occurred: ('23000', "[23000] [Microsoft][ODBC SQL Server Driver][SQL Server]Cannot insert explicit value for identity column in table 'Transactions' when IDENTITY_INSERT is set to OFF. (544) (SQLExecDirectW)")
