@@ -10,36 +10,30 @@ def import_csv_to_sql(file_path, table_name, identity_column):
     )
 
     try:
-        conn = get_connection()
-        if conn is None:
+        engine = get_connection() 
+        if engine is None:
             raise Exception("Database connection failed!")
 
-        cursor = conn.cursor()
+       
 
         df = pd.read_csv(file_path)
         print(f" Read {len(df)} records from {file_path}")
 
         # Exclude the identity column
-        columns = [col for col in df.columns if col.lower() != identity_column.lower()]
-        columns_str = ', '.join(columns)
-        placeholders = ', '.join(['?' for _ in columns])  # Parameterized placeholders
+        if identity_column in df.columns:
+            df = df.drop(columns=[identity_column])
 
-        sql = f"INSERT INTO {table_name} ({columns_str}) VALUES ({placeholders})"
+        # ✅ Use `to_sql()` for bulk insert (better than looping `execute()`)
+        df.to_sql(table_name, engine, if_exists="append", index=False)
 
-        for index, row in df.iterrows():
-            values = [row[col] for col in columns]  # Get values without identity column
-            cursor.execute(sql, values)  # Use parameterized query
-
-        conn.commit()
-        print(" Data imported successfully!")
+        print("✅ Data imported successfully!")
+        logging.info(f"Successfully imported {len(df)} records into {table_name}")
 
     except Exception as e:
         logging.error(f" Error Occurred: {str(e)}")
         print(f" Error: {str(e)}")
 
-    finally:
-        if conn:
-            conn.close()
+    
 
 # Import both CSVs into SQL
 import_csv_to_sql("products.csv", "Products", "ProductID")  # Exclude ProductID
