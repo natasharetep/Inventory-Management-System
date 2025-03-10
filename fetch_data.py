@@ -96,3 +96,42 @@ def fetch_sales_Report():
 
 
 fetch_sales_Report()
+
+
+
+def fetch_revenue_Report():
+    logging.basicConfig(
+        filename="database_logs.log",
+        level=logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s")
+    try:
+        engine = get_connection()
+        if engine is None:
+            raise Exception("Database connection is failed !")
+    
+        query ="""
+        SELECT 
+            p.ProductID, 
+            p.Name, 
+            p.Category, 
+            p.Price,
+            COALESCE(CONVERT(varchar, t.Date, 120), 'No Sales') AS Sale_Date,
+            COALESCE(SUM(t.Quantity), 0) AS Total_sales_Quantity,
+            COALESCE(COUNT(t.TransactionID), 0) AS Total_Sales_Transactions,
+            COALESCE(SUM(p.Price * t.Quantity), 0) AS Revenue  -- ✅ Fixing NULL issue
+        FROM Products p
+        LEFT JOIN Transactions t  
+            ON p.ProductID = t.ProductID
+            AND t.Type = 'Sale'
+        GROUP BY p.ProductID, p.Name, p.Category, p.Price, t.Date
+        ORDER BY t.Date DESC;
+
+            """
+        df = pd.read_sql(query, con=engine)
+        return df
+    
+    except Exception as e:
+        logging.error(f'Error Occured : {str(e)}')
+
+
+fetch_revenue_Report()

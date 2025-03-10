@@ -1,6 +1,6 @@
 import pandas as pd
 from db_connect import get_connection, logging_report
-from fetch_data import fetch_low_stock_products, fetch_sales_Report
+from fetch_data import fetch_low_stock_products, fetch_sales_Report, fetch_revenue_Report
 
 
 
@@ -21,3 +21,11 @@ def generate_sales_report():
         print("\nSales report generated!")
 
 generate_sales_report()
+
+def generate_revenue_report():
+    df = fetch_revenue_Report()
+    if df is not None and not df.empty:
+        df.to_csv('Revenue Report.csv')
+        print("\nSales report generated!")
+
+generate_revenue_report()
